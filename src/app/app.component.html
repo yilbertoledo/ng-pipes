@@ -23,6 +23,16 @@
                     <td>{{ nombre | lowercase }}</td>
                 </tr>
                 <tr>
+                    <td>{{ nombre2 }}</td>
+                    <td>capitalizado</td>
+                    <td>{{ nombre2 | capitalizado }}</td>
+                </tr>
+                <tr>
+                    <td>{{ nombre2 }}</td>
+                    <td>capitalizado: false</td>
+                    <td>{{ nombre2 | capitalizado: false }}</td>
+                </tr>
+                <tr>
                     <td>{{ nombre }}</td>
                     <td>Slice:3</td>
                     <td>{{ nombre | slice: 3 }}</td>
@@ -77,64 +87,85 @@
                     <td>{{ heroe }}</td>
                     <td>json</td>
                     <td>
-                        <pre>{{ heroe | json }}
-                        </pre
-            >
-          </td>
-        </tr>
-        <tr>
-          <td>{{ valorPromesa }}</td>
-          <td>async</td>
-          <td>{{ valorPromesa | async }}</td>
-        </tr>
-        <tr>
-          <td>{{ fecha }}</td>
-          <td>date</td>
-          <td>{{ fecha | date }}</td>
-        </tr>
-        <tr>
-          <td>{{ fecha }}</td>
-          <td>date:'medium'</td>
-          <td>{{ fecha | date: "medium" }}</td>
-        </tr>
-        <tr>
-          <td>{{ fecha }}</td>
-          <td>date:'short'</td>
-          <td>{{ fecha | date: "short" }}</td>
-        </tr>
-        <tr>
-          <td>{{ fecha }}</td>
-          <td>date:'MMMM - yyyy:MM:dd'</td>
-          <td>{{ fecha | date: "MMMM - yyyy:MM:dd" }}</td>
-        </tr>
-        <tr>
-          <td>{{ fecha }}</td>
-          <td>date: "MMMM - yyyy:MM:dd":"":"fr"</td>
-          <td>{{ fecha | date: "MMMM - yyyy:MM:dd":"":"fr" }}</td>
-        </tr>
-        <tr>
-          <td>{{ fecha }}</td>
-          <td>
-            date: 'MMMM - dd':'':{{ idioma }}
-            <br />
-            <button (click)="idioma = 'es-CL'" class="mr-1 btn btn-primary">
-              Chilensis
-            </button>
-            <button (click)="idioma = 'en'" class="mr-1 btn btn-secondary">
-              Inglés
-            </button>
-            <button (click)="idioma = 'fr'" class="mr-1 btn btn-success">
-              Francés
-            </button>
-          </td>
-          <td>{{ fecha | date: "MMMM - dd":"":idioma }}</td>
-        </tr>
-      </tbody>
-    </table>
+                        <pre>{{ heroe | json }}</pre>
+                    </td>
+                </tr>
 
-    <h3>Slice</h3>
-    <ul>
-      <li *ngFor="let item of arreglo | slice: 5:20">{{ item }}</li>
-    </ul>
-  </div>
+                <tr>
+                    <td>{{ valorPromesa }}</td>
+                    <td>async</td>
+                    <td>{{ valorPromesa | async }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date</td>
+                    <td>{{ fecha | date }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date:'medium'</td>
+                    <td>{{ fecha | date: "medium" }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date:'short'</td>
+                    <td>{{ fecha | date: "short" }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date:'MMMM - yyyy:MM:dd'</td>
+                    <td>{{ fecha | date: "MMMM - yyyy:MM:dd" }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date: "MMMM - yyyy:MM:dd":"":"fr"</td>
+                    <td>{{ fecha | date: "MMMM - yyyy:MM:dd":"":"fr" }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>
+                        date: 'MMMM - dd':'':'{{ idioma }}'
+                        <br />
+                        <button (click)="idioma = 'es-CL'" class="mr-1 btn btn-primary">
+              CL
+            </button>
+                        <button (click)="idioma = 'en'" class="mr-1 btn btn-secondary">
+              EN
+            </button>
+                        <button (click)="idioma = 'fr'" class="mr-1 btn btn-success">
+              FR
+            </button>
+                    </td>
+                    <td>{{ fecha | date: "MMMM - dd":"":idioma }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{ nombre }}</td>
+                    <td>
+                        contrasena|{{ activar }}
+                        <br />
+                        <button (click)="activar = !activar" class="btn btn-outline-primary">
+              {{ !activar ? "Ocultar" : "Mostrar" }}
+            </button>
+                    </td>
+                    <td>{{ nombre | contrasena: activar }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Slice</h3>
+        <ul>
+            <li *ngFor="let item of arreglo | slice: 5:20">{{ item }}</li>
+        </ul>
+
+        <h3 class="mt-4">
+            DOM Seguro
+            <hr />
+            <div class="row">
+                <div class="col mb-5">
+                    <iframe width="560" height="315" [src]="videoUrl | domseguro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </h3>
+    </div>
 </div>

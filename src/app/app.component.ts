@@ -11,6 +11,7 @@ export class AppComponent {
   pi = Math.PI;
   porcentaje = 0.234;
   salario = 1234.5;
+  nombre2 = 'YiLbER TOleDO';
 
   heroe = {
     nombre: 'Logan',
@@ -27,5 +28,8 @@ export class AppComponent {
 
   idioma = 'en';
 
+  videoUrl = 'https://www.youtube.com/embed/_ioc6sdgugo';
+
   fecha = new Date();
+  activar = true;
 }
